@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./App.css";
 
+import DeliveryModal from "./components/DeliveryModal";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
 import Admin from "./pages/Admin";
 
 function App() {
+  const [deliveryModalOpen, setDeliveryModalOpen] = useState(false);
   const [page, setPage] = useState("home");
 
   return (
@@ -18,6 +20,12 @@ function App() {
         <nav>
           <a onClick={() => setPage("home")}>Home</a>
           <a onClick={() => setPage("home")}>Shop</a>
+          <button
+            className="delivery-location"
+            onClick={() => setDeliveryModalOpen(true)}
+          >
+            📍 Check Delivery Area
+          </button>
           <a onClick={() => setPage("checkout")}>Checkout</a>
           <a onClick={() => setPage("admin")}>Admin</a>
         </nav>
@@ -26,6 +34,11 @@ function App() {
       {page === "home" && <Home />}
       {page === "checkout" && <Checkout />}
       {page === "admin" && <Admin />}
+
+      <DeliveryModal
+        open={deliveryModalOpen}
+        onClose={() => setDeliveryModalOpen(false)}
+      />
     </div>
   );
 }

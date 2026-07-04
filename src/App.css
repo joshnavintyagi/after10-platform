@@ -1,4 +1,23 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #050505;
+  --panel: #111111;
+  --panel-soft: #181818;
+  --gold: #ffc400;
+  --gold-soft: rgba(255, 196, 0, 0.18);
+  --text: #ffffff;
+  --muted: #bdbdbd;
+  --border: rgba(255, 196, 0, 0.25);
+  --radius: 22px;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -548,4 +567,439 @@ button:hover {
     margin-right: 25px;
     padding: 28px;
   }
+}
+.hero{
+    text-align:center;
+    padding:70px 20px 50px;
+}
+
+.hero-small{
+    color:#FFC400;
+    font-weight:700;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:56px;
+    color:white;
+    margin-bottom:20px;
+    line-height:1.1;
+}
+
+.hero h1 span{
+    color:#FFC400;
+}
+
+.hero-text{
+    color:#bbb;
+    max-width:650px;
+    margin:0 auto 35px;
+    font-size:18px;
+}
+
+.hero-actions{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.postcode-input{
+    padding:16px 20px;
+    width:280px;
+    border-radius:12px;
+    border:none;
+    font-size:16px;
+}
+
+.gold-btn{
+    background:#FFC400;
+    color:#111;
+    border:none;
+    padding:16px 28px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.gold-btn:hover{
+    transform:translateY(-3px);
+}
+
+.hero-features{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:40px;
+    color:#ddd;
+    flex-wrap:wrap;
+}
+.basket-box {
+  position: fixed;
+  right: 20px;
+  top: 80px;
+  width: 300px;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  background: #111;
+  border: 1px solid rgba(255,196,0,.35);
+  border-radius: 20px;
+  padding: 22px;
+  z-index: 999;
+}
+
+.basket-row {
+  display: grid;
+  gap: 10px;
+  border-bottom: 1px solid #333;
+  padding: 12px 0;
+}
+
+.basket-qty {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.basket-qty button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+}
+
+.minimum-note {
+  color: #FFC400;
+  margin: 12px 0;
+}
+
+.final-total {
+  border-top: 2px solid #FFC400;
+  padding-top: 10px;
+}
+.basket-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 998;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.basket-box {
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  max-height: 100vh;
+  border-radius: 0;
+}
+
+.basket-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: transparent;
+  color: #FFC400;
+  font-size: 30px;
+  padding: 0;
+}
+
+.basket-total {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.mini-basket-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 997;
+}
+.delivery-checker {
+  margin: 30px 7%;
+  padding: 35px;
+  background: linear-gradient(180deg, #151515, #0b0b0b);
+  border: 1px solid rgba(255,196,0,.3);
+  border-radius: 22px;
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  align-items: center;
+}
+
+.delivery-checker h2 {
+  margin-bottom: 10px;
+}
+
+.delivery-checker p {
+  color: #bbb;
+}
+
+.postcode-form {
+  display: flex;
+  gap: 12px;
+}
+
+.postcode-form input {
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,196,0,.3);
+  background: #090909;
+  color: white;
+}
+
+@media (max-width: 800px) {
+  .delivery-checker {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .postcode-form {
+    flex-direction: column;
+  }
+}
+.delivery-result{
+    margin-top:15px;
+    color:#FFC400;
+    font-weight:600;
+}
+.postcode-form {
+  align-items: flex-start;
+}
+
+.postcode-form input {
+  width: 260px;
+  max-width: 100%;
+}
+
+.delivery-result {
+  width: 100%;
+}
+.delivery-checker {
+  align-items: center !important;
+}
+
+.postcode-form {
+  display: grid !important;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: start;
+  max-width: 420px;
+}
+
+.postcode-form input {
+  width: 100% !important;
+}
+
+.delivery-result {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+}
+.customer-lookup {
+  margin: 30px 7%;
+  padding: 30px;
+  background: #111;
+  border: 1px solid rgba(255,196,0,.3);
+  border-radius: 22px;
+}
+
+.customer-lookup input {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,196,0,.3);
+  background: #090909;
+  color: white;
+  margin-right: 10px;
+}
+
+.customer-card {
+  margin-top: 20px;
+  padding: 20px;
+  background: #181818;
+  border-radius: 16px;
+}
+button,
+a,
+.product-card,
+.category-filter button,
+.basket-box,
+.delivery-checker,
+.customer-lookup {
+  transition: all 0.25s ease;
+}
+
+button {
+  letter-spacing: 0.2px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 196, 0, 0.28);
+}
+
+.product-card:hover,
+.delivery-checker:hover,
+.customer-lookup:hover {
+  border-color: var(--gold);
+  box-shadow: 0 22px 55px rgba(255, 196, 0, 0.12);
+}
+
+.hero h1 {
+  letter-spacing: -2px;
+}
+
+.product-card h3,
+.categories h2,
+.products h2,
+.delivery-checker h2 {
+  letter-spacing: -0.6px;
+}
+
+.search-box,
+.postcode-form input,
+.customer-lookup input {
+  outline: none;
+}
+
+.search-box:focus,
+.postcode-form input:focus,
+.customer-lookup input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(255, 196, 0, 0.12);
+}
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 7%;
+
+    background:rgba(5,5,5,.92);
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(255,196,0,.15);
+}
+
+.logo{
+    font-size:34px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#FFC400;
+}
+
+.main-nav{
+    display:flex;
+    gap:35px;
+}
+
+.main-nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.main-nav a:hover{
+    color:#FFC400;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.delivery-location{
+    background:#151515;
+    color:white;
+    border:1px solid rgba(255,196,0,.25);
+    border-radius:999px;
+    padding:12px 20px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.delivery-location:hover{
+    background:#1d1d1d;
+    border-color:#FFC400;
+}
+
+.delivery-location strong{
+    color:#FFC400;
+    margin-left:6px;
+}
+
+.basket-btn{
+    background:#FFC400;
+    color:#111;
+    border:none;
+    padding:12px 22px;
+    border-radius:999px;
+    font-weight:700;
+    cursor:pointer;
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.72);
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delivery-modal {
+  width: 420px;
+  max-width: 92vw;
+  background: #111;
+  border: 1px solid rgba(255,196,0,.35);
+  border-radius: 24px;
+  padding: 32px;
+  position: relative;
+  box-shadow: 0 30px 90px rgba(0,0,0,.65);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: transparent;
+  color: #FFC400;
+  font-size: 30px;
+  padding: 0;
+}
+.out-area-form {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.out-area-form h3 {
+  color: #FFC400;
+}
+
+.out-area-form input,
+.out-area-form textarea {
+  background: #090909;
+  color: white;
+  border: 1px solid rgba(255,196,0,.3);
+  border-radius: 12px;
+  padding: 13px;
+  font-family: inherit;
+}
+
+.out-area-form textarea {
+  min-height: 90px;
+  resize: vertical;
 }
