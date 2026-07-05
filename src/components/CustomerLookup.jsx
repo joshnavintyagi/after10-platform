@@ -1,50 +1,62 @@
 import { useState } from "react";
 import { customers } from "../data/customers";
 
-function CustomerLookup() {
+function CustomerLookup({ openDeliveryModal }) {
   const [mobile, setMobile] = useState("");
   const [customer, setCustomer] = useState(null);
+  const [searched, setSearched] = useState(false);
 
   const findCustomer = () => {
-    const found = customers.find(c => c.mobile === mobile);
+    const cleanedMobile = mobile.trim();
+    const found = customers.find((c) => c.mobile === cleanedMobile);
 
-    if (found) {
-      setCustomer(found);
-    } else {
-      setCustomer(null);
-    }
+    setCustomer(found || null);
+    setSearched(true);
   };
 
   return (
     <section className="customer-lookup">
+      <p className="hero-small">FAST CHECKOUT</p>
+      <h2>Already ordered with AFTER10?</h2>
+      <p>Enter your mobile number and we’ll find your saved delivery details.</p>
 
-      <h2>Returning Customer</h2>
+      <div className="customer-lookup-row">
+        <input
+          placeholder="Mobile number"
+          value={mobile}
+          onChange={(e) => setMobile(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && findCustomer()}
+        />
 
-      <input
-        placeholder="Enter your mobile number"
-        value={mobile}
-        onChange={(e) => setMobile(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && findCustomer()}
-      />
-
-      <button onClick={findCustomer}>
-        Continue
-      </button>
+        <button className="gold-btn" onClick={findCustomer}>
+          Continue
+        </button>
+      </div>
 
       {customer && (
         <div className="customer-card">
-          <h3>Welcome back {customer.firstName} 👋</h3>
+          <h3>Welcome back, {customer.firstName} 👋</h3>
 
-          <p>{customer.address}</p>
+          <div className="saved-address">
+            <strong>{customer.address}</strong>
+            <span>{customer.postcode}</span>
+            <small>{customer.instructions}</small>
+          </div>
 
-          <p>{customer.postcode}</p>
-
-          <button>Deliver to this address</button>
-
-          <button>Use different address</button>
+          <div className="customer-actions">
+            <button className="gold-btn">Deliver here</button>
+            <button className="outline-btn" onClick={openDeliveryModal}>
+  Use different address
+</button>
+          </div>
         </div>
       )}
 
+      {searched && !customer && (
+        <p className="delivery-result">
+          No saved customer found. Please continue as a new customer below.
+        </p>
+      )}
     </section>
   );
 }

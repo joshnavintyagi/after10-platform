@@ -5,6 +5,7 @@ function Basket({
   removeFromBasket,
   clearBasket,
   closeBasket,
+  goToCheckout,
 }) {
   const subtotal = basketItems.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -63,10 +64,26 @@ function Basket({
             <span>Total</span>
             <strong>£{total.toFixed(2)}</strong>
           </div>
+<div className="basket-actions">
 
-          <button className="clear-basket" onClick={clearBasket}>
-            Clear Basket
-          </button>
+  <button
+    className="gold-btn"
+    onClick={() => {
+      closeBasket();
+      goToCheckout();
+    }}
+  >
+    Review Order
+  </button>
+
+  <button
+    className="clear-basket"
+    onClick={clearBasket}
+  >
+    Empty Basket
+  </button>
+
+</div>
         </>
       )}
     </aside>

@@ -1,31 +1,50 @@
 function Hero() {
   return (
     <section className="hero">
-      <div className="hero-content">
-        <p className="hero-small">FAST LOCAL DELIVERY</p>
 
-       <p className="hero-small">LOCAL DELIVERY</p>
+      <div className="hero-left">
 
-<h1>
-  Groceries & Essentials
-  <br />
-  <span>Delivered to your door.</span>
-</h1>
+        <p className="hero-tag">
+          FAST • LOCAL • RELIABLE
+        </p>
 
-<p className="hero-text">
-  Fresh groceries, drinks, snacks and everyday essentials delivered across your local area.
-</p>
+        <h1>
+          Groceries & Essentials
+          <span> Delivered to your door.</span>
+        </h1>
 
-        <div className="hero-actions">
-  <button className="gold-btn">Start Shopping</button>
-</div>
+        <p className="hero-text">
+          Fresh groceries, drinks, snacks and everyday essentials delivered across your local area in minutes.
+        </p>
+
+        <div className="hero-buttons">
+          <button className="gold-btn">
+            Shop Now →
+          </button>
+
+          <button className="outline-btn">
+            Check Delivery Area
+          </button>
+        </div>
 
         <div className="hero-features">
-          <div>⚡ Fast Delivery</div>
-          <div>🛒 Everyday Essentials</div>
-          <div>📍 Local Service</div>
+          <span>⚡ Fast Delivery</span>
+          <span>🛒 Everyday Essentials</span>
+          <span>📍 Local Service</span>
         </div>
+
       </div>
+
+      <div className="hero-right">
+
+        <img
+          src="/hero-groceries.png"
+          alt="Groceries"
+          className="hero-image"
+        />
+
+      </div>
+
     </section>
   );
 }

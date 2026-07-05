@@ -1,23 +1,49 @@
 function Products({ products, addToBasket }) {
   return (
     <section className="products">
-      <p className="small">POPULAR TONIGHT</p>
-      <h2>Featured Products</h2>
+
+      <div className="section-heading">
+        <p className="small-title">POPULAR TONIGHT</p>
+        <h2>Featured Products</h2>
+      </div>
 
       <div className="product-grid">
-        {products.map((product) => (
-          <div className="product-card" key={product.id}>
-            <div className="product-icon">{product.icon}</div>
-            <p className="product-category">{product.category}</p>
-            <h3>{product.name}</h3>
-            <p className="product-price">£{product.price.toFixed(2)}</p>
 
-            <button onClick={() => addToBasket(product)}>
-              Add to Basket
-            </button>
+        {products.map((product) => (
+
+          <div className="product-card" key={product.id}>
+
+            <div className="product-image">
+              {product.icon}
+            </div>
+
+            <div className="product-category">
+              {product.category}
+            </div>
+
+            <h3>{product.name}</h3>
+
+            <div className="product-bottom">
+
+              <div className="product-price">
+                £{product.price.toFixed(2)}
+              </div>
+
+              <button
+                className="add-btn"
+                onClick={() => addToBasket(product)}
+              >
+                Add
+              </button>
+
+            </div>
+
           </div>
+
         ))}
+
       </div>
+
     </section>
   );
 }

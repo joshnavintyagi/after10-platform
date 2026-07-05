@@ -35,8 +35,10 @@ function App() {
         </nav>
       </header>
 
-      {page === "home" && <Home />}
-      {page === "checkout" && <Checkout />}
+      {page === "home" && <Home goToCheckout={() => setPage("checkout")} />}
+      {page === "checkout" && (
+  <Checkout openDeliveryModal={() => setDeliveryModalOpen(true)} />
+)}
       {page === "admin" && <Admin />}
 
       <DeliveryModal

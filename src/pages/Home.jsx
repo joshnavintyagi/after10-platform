@@ -7,7 +7,7 @@ import Basket from "../components/Basket";
 import { products } from "../data/products";
 import { categories } from "../data/categories";
 
-function Home() {
+function Home({ goToCheckout }) {
   const [basketItems, setBasketItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("");
@@ -98,12 +98,14 @@ function Home() {
         <div className="basket-overlay" onClick={() => setBasketOpen(false)}>
           <div onClick={(e) => e.stopPropagation()}>
             <Basket
+            
               basketItems={basketItems}
               increaseQuantity={increaseQuantity}
               decreaseQuantity={decreaseQuantity}
               removeFromBasket={removeFromBasket}
               clearBasket={clearBasket}
               closeBasket={() => setBasketOpen(false)}
+              goToCheckout={goToCheckout}
             />
           </div>
         </div>

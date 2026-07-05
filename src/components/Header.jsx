@@ -1,27 +1,38 @@
-function Header({ basketItemCount, setBasketOpen, openDeliveryModal }) {
+function Header({
+  basketItemCount,
+  setBasketOpen,
+  setPage,
+  deliveryArea,
+  openDeliveryModal,
+}) {
   return (
     <header className="header">
 
-      <div className="logo">
+      <div className="logo" onClick={() => setPage("home")}>
         AFTER<span>10</span>
       </div>
 
       <nav className="main-nav">
-        <a href="#">Home</a>
-        <a href="#">Shop</a>
+        <a onClick={() => setPage("home")}>Home</a>
+        <a onClick={() => setPage("home")}>Shop</a>
+        <a onClick={() => setPage("checkout")}>Checkout</a>
+        <a onClick={() => setPage("admin")}>Admin</a>
       </nav>
 
       <div className="header-right">
 
-        <button className="delivery-location" onClick={openDeliveryModal}>
-  📍 Check Delivery Area
-</button>
+        <div
+          className="delivery-location"
+          onClick={openDeliveryModal}
+        >
+          📍 <strong>{deliveryArea || "Check Area"}</strong>
+        </div>
 
         <button
           className="basket-btn"
           onClick={() => setBasketOpen(true)}
         >
-          🛒 Basket ({basketItemCount})
+          🛒 {basketItemCount}
         </button>
 
       </div>
@@ -29,5 +40,4 @@ function Header({ basketItemCount, setBasketOpen, openDeliveryModal }) {
     </header>
   );
 }
-
 export default Header;
