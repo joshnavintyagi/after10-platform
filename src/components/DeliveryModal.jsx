@@ -23,10 +23,17 @@ function DeliveryModal({ open, onClose }) {
     }
 
     if (deliveryZones[area]) {
+      localStorage.setItem("deliveryPostcode", area);
+
       setMessage(
         `✅ Delivery available in ${area}. Charge: £${deliveryZones[area].fee.toFixed(2)}`
       );
+
       setShowRequestForm(false);
+
+      setTimeout(() => {
+        onClose();
+      }, 1200);
     } else {
       setMessage(
         "We don’t currently deliver to this area as standard, but if a driver is available, we’ll try our best to help."

@@ -7,6 +7,8 @@ import Checkout from "./pages/Checkout";
 import Admin from "./pages/Admin";
 
 function App() {
+  const savedPostcode =
+  localStorage.getItem("deliveryPostcode");
   const [deliveryModalOpen, setDeliveryModalOpen] = useState(false);
   const [page, setPage] = useState("home");
 
@@ -24,7 +26,9 @@ function App() {
             className="delivery-location"
             onClick={() => setDeliveryModalOpen(true)}
           >
-            📍 Check Delivery Area
+            {savedPostcode
+  ? `📍 ${savedPostcode}`
+  : "📍 Check Delivery Area"}
           </button>
           <a onClick={() => setPage("checkout")}>Checkout</a>
           <a onClick={() => setPage("admin")}>Admin</a>
